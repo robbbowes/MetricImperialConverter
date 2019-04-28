@@ -13,9 +13,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView ouncesInput;
     private TextView kilosInput;
     private TextView gramsInput;
+    private TextView feetInput;
+    private TextView inchesInput;
+    private TextView metresInput;
+    private TextView centimetresInput;
 
     public void imperialToMetric(View view) {
         imperialToMetricWeight();
+        imperialToMetricHeight();
     }
 
     public void metricToImperial(View view) {
@@ -26,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         int stones = parserHelper(stonesInput);
         int pounds = parserHelper(poundsInput);
         int ounces = parserHelper(ouncesInput);
-
         double stonesGrams = stones * 6350.29318;
         double poundsGrams = pounds * 453.59237;
         double ouncesGrams = ounces * 28.349;
@@ -42,9 +46,21 @@ public class MainActivity extends AppCompatActivity {
         gramsInput.setText(String.valueOf(grams));
     }
 
-    public void metricToImperialWeight() {
+    private void imperialToMetricHeight() {
+        int feet = parserHelper(feetInput);
+        int inches = parserHelper(inchesInput);
+        int totalInInches = (feet * 12) + inches;
+        double totalInCentimetres = totalInInches * 2.54;
+        int remainingCentimetres = (int) totalInCentimetres % 100;
+        int metres = (int) (totalInCentimetres - remainingCentimetres) / 100;
+
+        centimetresInput.setText(String.valueOf(remainingCentimetres));
+        metresInput.setText(String.valueOf(metres));
+    }
+
+    private void metricToImperialWeight() {
         int kilos = parserHelper(kilosInput);
-        int grams = parserHelper(gramsInput);;
+        int grams = parserHelper(gramsInput);
 
         double totalMetricWeightInGrams = ((kilos * 1000) + grams);
         double totalOunces = totalMetricWeightInGrams * 0.03527396195;
@@ -62,7 +78,18 @@ public class MainActivity extends AppCompatActivity {
     private int parserHelper(TextView textView) {
         String input = textView.getText().toString();
         return input.equals("") ? 0 : Integer.parseInt(textView.getText().toString());
+    }
 
+    public void clearAll(View view) {
+        stonesInput.setText(null);
+        poundsInput.setText(null);
+        ouncesInput.setText(null);
+        kilosInput.setText(null);
+        gramsInput.setText(null);
+        feetInput.setText(null);
+        inchesInput.setText(null);
+        metresInput.setText(null);
+        centimetresInput.setText(null);
     }
 
     @Override
@@ -74,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
         ouncesInput = findViewById(R.id.ouncesInput);
         kilosInput = findViewById(R.id.kiloInput);
         gramsInput = findViewById(R.id.gramsInput);
+        feetInput = findViewById(R.id.feetInput);
+        inchesInput = findViewById(R.id.inchesInput);
+        metresInput = findViewById(R.id.metresInput);
+        centimetresInput = findViewById(R.id.centimetresInput);
     }
 
 
