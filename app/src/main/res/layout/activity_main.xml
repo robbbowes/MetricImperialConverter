@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/toImperial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="metricToImperial"
+        android:text="To Imperial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toMetric"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/kiloText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Kilos"
+        app:layout_constraintBottom_toTopOf="@+id/kiloInput"
+        app:layout_constraintEnd_toEndOf="@+id/kiloInput"
+        app:layout_constraintStart_toStartOf="@+id/kiloInput"
+        app:layout_constraintTop_toBottomOf="@+id/stoneInput" />
+
+    <TextView
+        android:id="@+id/gramsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Grams"
+        app:layout_constraintBottom_toTopOf="@+id/gramsInput"
+        app:layout_constraintEnd_toEndOf="@+id/gramsInput"
+        app:layout_constraintStart_toStartOf="@+id/gramsInput"
+        app:layout_constraintTop_toBottomOf="@+id/ouncesInput" />
+
+    <TextView
+        android:id="@+id/poundsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Pounds"
+        app:layout_constraintBottom_toTopOf="@+id/poundsInput"
+        app:layout_constraintEnd_toEndOf="@+id/poundsInput"
+        app:layout_constraintStart_toStartOf="@+id/poundsInput"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ouncesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Ounces"
+        app:layout_constraintBottom_toTopOf="@+id/ouncesInput"
+        app:layout_constraintEnd_toEndOf="@+id/ouncesInput"
+        app:layout_constraintStart_toStartOf="@+id/ouncesInput"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/kiloInput"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/gramsInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kiloText" />
+
+    <EditText
+        android:id="@+id/gramsInput"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/kiloInput"
+        app:layout_constraintTop_toBottomOf="@+id/ouncesInput" />
+
+    <EditText
+        android:id="@+id/poundsInput"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/ouncesInput"
+        app:layout_constraintStart_toEndOf="@+id/stoneInput"
+        app:layout_constraintTop_toBottomOf="@+id/poundsText" />
+
+    <EditText
+        android:id="@+id/ouncesInput"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/poundsInput"
+        app:layout_constraintTop_toBottomOf="@+id/ouncesText" />
+
+    <EditText
+        android:id="@+id/stoneInput"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/poundsInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stoneText" />
+
+    <TextView
+        android:id="@+id/stoneText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Stone"
+        app:layout_constraintBottom_toTopOf="@+id/stoneInput"
+        app:layout_constraintEnd_toEndOf="@+id/stoneInput"
+        app:layout_constraintStart_toStartOf="@+id/stoneInput"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/toMetric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="imperialToMetric"
+        android:text="To Metric"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/toImperial" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="395dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="205dp" />
+
+</android.support.constraint.ConstraintLayout>
