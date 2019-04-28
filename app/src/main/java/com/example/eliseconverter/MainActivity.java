@@ -8,6 +8,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView stonesInput;
+    private TextView poundsInput;
+    private TextView ouncesInput;
+    private TextView kilosInput;
+    private TextView gramsInput;
+
     public void imperialToMetric(View view) {
         imperialToMetricWeight();
     }
@@ -16,41 +22,29 @@ public class MainActivity extends AppCompatActivity {
         metricToImperialWeight();
     }
 
-
     private void imperialToMetricWeight() {
-        TextView stonesInput = findViewById(R.id.stoneInput);
-        TextView poundsInput = findViewById(R.id.poundsInput);
-        TextView ouncesInput = findViewById(R.id.ouncesInput);
-
-        double stones = Double.parseDouble(stonesInput.getText().toString());
-        double pounds = Double.parseDouble(poundsInput.getText().toString());
-        double ounces = Double.parseDouble(ouncesInput.getText().toString());
+        int stones = parserHelper(stonesInput);
+        int pounds = parserHelper(poundsInput);
+        int ounces = parserHelper(ouncesInput);
 
         double stonesGrams = stones * 6350.29318;
         double poundsGrams = pounds * 453.59237;
         double ouncesGrams = ounces * 28.349;
 
-        double totalGrams = stonesGrams + poundsGrams + ouncesGrams;
-        int kilos = (int) totalGrams / 1000;
+        double totalMetricWeightInGrams = stonesGrams + poundsGrams + ouncesGrams;
+
+        int grams = (int) totalMetricWeightInGrams % 1000;
+        int kilos = (int) (totalMetricWeightInGrams - grams) / 1000;
         System.out.println("Kilos: " + kilos);
-        int grams = (int) totalGrams % 1000;
         System.out.println("Grams: " + grams);
 
-        TextView kilosInput = findViewById(R.id.kiloInput);
-        TextView gramsInput = findViewById(R.id.gramsInput);
         kilosInput.setText(String.valueOf(kilos));
         gramsInput.setText(String.valueOf(grams));
     }
 
     public void metricToImperialWeight() {
-        TextView kilosInput = findViewById(R.id.kiloInput);
-        TextView gramsInput = findViewById(R.id.gramsInput);
-        TextView stonesInput = findViewById(R.id.stoneInput);
-        TextView poundsInput = findViewById(R.id.poundsInput);
-        TextView ouncesInput = findViewById(R.id.ouncesInput);
-
-        int kilos = Integer.parseInt(kilosInput.getText().toString());
-        int grams = Integer.parseInt(gramsInput.getText().toString());
+        int kilos = parserHelper(kilosInput);
+        int grams = parserHelper(gramsInput);;
 
         double totalMetricWeightInGrams = ((kilos * 1000) + grams);
         double totalOunces = totalMetricWeightInGrams * 0.03527396195;
@@ -65,10 +59,21 @@ public class MainActivity extends AppCompatActivity {
         stonesInput.setText(String.valueOf(totalStones));
     }
 
+    private int parserHelper(TextView textView) {
+        String input = textView.getText().toString();
+        return input.equals("") ? 0 : Integer.parseInt(textView.getText().toString());
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        stonesInput = findViewById(R.id.stoneInput);
+        poundsInput = findViewById(R.id.poundsInput);
+        ouncesInput = findViewById(R.id.ouncesInput);
+        kilosInput = findViewById(R.id.kiloInput);
+        gramsInput = findViewById(R.id.gramsInput);
     }
 
 
