@@ -28,7 +28,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/inchesInput"
         app:layout_constraintStart_toStartOf="@+id/inchesInput"
         app:layout_constraintTop_toBottomOf="@+id/centimetresText" />
@@ -56,6 +56,26 @@
         app:layout_constraintEnd_toEndOf="@+id/feetText"
         app:layout_constraintStart_toStartOf="@+id/feetText"
         app:layout_constraintTop_toBottomOf="@+id/feetInput" />
+
+    <TextView
+        android:id="@+id/milesText"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="24dp"
+        android:text="Miles"
+        app:layout_constraintEnd_toEndOf="@+id/metresText"
+        app:layout_constraintStart_toStartOf="@+id/metresText"
+        app:layout_constraintTop_toBottomOf="@+id/metresInput" />
+
+    <TextView
+        android:id="@+id/kilometresText"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
+        android:text="Kilometres"
+        app:layout_constraintEnd_toEndOf="@+id/milesText"
+        app:layout_constraintStart_toStartOf="@+id/milesText"
+        app:layout_constraintTop_toBottomOf="@+id/milesInput" />
 
     <TextView
         android:id="@+id/centimetresText"
@@ -151,7 +171,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/stoneInput"
         app:layout_constraintStart_toStartOf="@+id/stoneInput"
         app:layout_constraintTop_toBottomOf="@+id/kiloText" />
@@ -162,7 +182,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/kiloInput"
         app:layout_constraintStart_toStartOf="@+id/kiloInput"
         app:layout_constraintTop_toBottomOf="@+id/feetText" />
@@ -173,10 +193,32 @@
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/feetInput"
         app:layout_constraintStart_toStartOf="@+id/feetInput"
         app:layout_constraintTop_toBottomOf="@+id/metresText" />
+
+    <EditText
+        android:id="@+id/milesInput"
+        android:layout_width="77dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/metresInput"
+        app:layout_constraintStart_toStartOf="@+id/metresInput"
+        app:layout_constraintTop_toBottomOf="@+id/milesText" />
+
+    <EditText
+        android:id="@+id/kilometresInput"
+        android:layout_width="77dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/milesInput"
+        app:layout_constraintStart_toStartOf="@+id/milesInput"
+        app:layout_constraintTop_toBottomOf="@+id/kilometresText" />
 
     <EditText
         android:id="@+id/inchesInput"
@@ -184,7 +226,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/gramsInput"
         app:layout_constraintStart_toStartOf="@+id/gramsInput"
         app:layout_constraintTop_toBottomOf="@+id/inchesText" />
@@ -195,7 +237,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/poundsInput"
         app:layout_constraintStart_toStartOf="@+id/poundsInput"
         app:layout_constraintTop_toBottomOf="@+id/gramsText" />
@@ -206,7 +248,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toStartOf="@+id/ouncesInput"
         app:layout_constraintStart_toEndOf="@+id/stoneInput"
         app:layout_constraintTop_toBottomOf="@+id/poundsText" />
@@ -219,7 +261,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/poundsInput"
         app:layout_constraintTop_toBottomOf="@+id/ouncesText" />
@@ -232,7 +274,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toStartOf="@+id/poundsInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stoneText" />

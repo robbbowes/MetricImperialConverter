@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView stonesInput;
@@ -17,20 +19,25 @@ public class MainActivity extends AppCompatActivity {
     private TextView inchesInput;
     private TextView metresInput;
     private TextView centimetresInput;
+    private TextView milesInput;
+    private TextView kilometresInput;
 
     public void imperialToMetric(View view) {
         imperialToMetricWeight();
         imperialToMetricHeight();
+        imperialToMetricDistance();
     }
 
     public void metricToImperial(View view) {
         metricToImperialWeight();
+        metricToImperialHeight();
+        metricToImperialDistance();
     }
 
     private void imperialToMetricWeight() {
-        int stones = parserHelper(stonesInput);
-        int pounds = parserHelper(poundsInput);
-        int ounces = parserHelper(ouncesInput);
+        int stones = (int) parserHelper(stonesInput);
+        int pounds = (int) parserHelper(poundsInput);
+        int ounces = (int) parserHelper(ouncesInput);
         double stonesGrams = stones * 6350.29318;
         double poundsGrams = pounds * 453.59237;
         double ouncesGrams = ounces * 28.349;
@@ -47,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void imperialToMetricHeight() {
-        int feet = parserHelper(feetInput);
-        int inches = parserHelper(inchesInput);
+        int feet = (int) parserHelper(feetInput);
+        int inches = (int) parserHelper(inchesInput);
         int totalInInches = (feet * 12) + inches;
         double totalInCentimetres = totalInInches * 2.54;
         int remainingCentimetres = (int) totalInCentimetres % 100;
@@ -58,9 +65,17 @@ public class MainActivity extends AppCompatActivity {
         metresInput.setText(String.valueOf(metres));
     }
 
+    private void imperialToMetricDistance() {
+        double miles = parserHelper(milesInput);
+        DecimalFormat df = new DecimalFormat("#.##");
+        double totalKilometres = miles * 1.609344;
+        String kilometresString = df.format(totalKilometres);
+        kilometresInput.setText(kilometresString);
+    }
+
     private void metricToImperialWeight() {
-        int kilos = parserHelper(kilosInput);
-        int grams = parserHelper(gramsInput);
+        int kilos = (int) parserHelper(kilosInput);
+        int grams = (int) parserHelper(gramsInput);
 
         double totalMetricWeightInGrams = ((kilos * 1000) + grams);
         double totalOunces = totalMetricWeightInGrams * 0.03527396195;
@@ -75,9 +90,31 @@ public class MainActivity extends AppCompatActivity {
         stonesInput.setText(String.valueOf(totalStones));
     }
 
-    private int parserHelper(TextView textView) {
+    private void metricToImperialHeight() {
+        int metres = (int) parserHelper(metresInput);
+        int centimetres = (int) parserHelper(centimetresInput);
+
+        int totalHeightInCentimetres = (metres * 100) + centimetres;
+        double totalInches = totalHeightInCentimetres * 0.3937007992;
+        int remainingInches = (int) totalInches % 12;
+        System.out.println(remainingInches);
+        inchesInput.setText(String.valueOf(remainingInches));
+
+        int totalFeet = (int) (totalInches - remainingInches) / 12;
+        feetInput.setText(String.valueOf(totalFeet));
+    }
+
+    private void metricToImperialDistance() {
+        double kilometres = parserHelper(kilometresInput);
+        DecimalFormat df = new DecimalFormat("#.##");
+        double totalMiles = kilometres * 0.6213712;
+        String milesString = df.format(totalMiles);
+        milesInput.setText(milesString);
+    }
+
+    private double parserHelper(TextView textView) {
         String input = textView.getText().toString();
-        return input.equals("") ? 0 : Integer.parseInt(textView.getText().toString());
+        return input.equals("") ? 0 : Double.parseDouble(textView.getText().toString());
     }
 
     public void clearAll(View view) {
@@ -90,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
         inchesInput.setText(null);
         metresInput.setText(null);
         centimetresInput.setText(null);
+        milesInput.setText(null);
+        kilometresInput.setText(null);
     }
 
     @Override
@@ -105,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
         inchesInput = findViewById(R.id.inchesInput);
         metresInput = findViewById(R.id.metresInput);
         centimetresInput = findViewById(R.id.centimetresInput);
+        milesInput = findViewById(R.id.milesInput);
+        kilometresInput = findViewById(R.id.kilometresInput);
     }
 
 
